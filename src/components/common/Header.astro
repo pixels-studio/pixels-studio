@@ -1,0 +1,87 @@
+---
+import { cn } from "@/utils/helper";
+
+const LINKS = [
+  {
+    name: "Work",
+    href: "/",
+  },
+  {
+    name: "Experience",
+    href: "/experience",
+  },
+  {
+    name: "About",
+    href: "/about",
+  },
+  {
+    name: "Contact",
+    href: "/contact",
+  },
+];
+
+const SOCIAL_LINKS = [
+  {
+    name: "TW",
+    href: "https://twitter.com",
+  },
+
+  {
+    name: "IG",
+    href: "https://instagram.com",
+  },
+  {
+    name: "LI",
+    href: "https://linkedin.com",
+  },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="p-5">
+  <div class="grid grid-cols-10 gap-4 items-end">
+    <a
+      class="flex flex-col col-span-4 text-xs uppercase tracking-wide font-semibold"
+      href="/"
+    >
+      <p>Abhishek Kambli</p>
+      <p class="text-base-5">Product Designer & FrontendG Developer</p>
+    </a>
+
+    <nav class="col-span-4 flex items-center gap-10">
+      {
+        LINKS.map((link) => {
+          const isActive = currentPath === link.href;
+          return (
+            <a
+              class={cn(
+                "text-xs uppercase tracking-wide font-semibold transition-colors ease-smooth ",
+                "hover:text-base-10",
+                isActive ? "text-base-10" : "text-base-6"
+              )}
+              href={link.href}
+            >
+              {link.name}
+            </a>
+          );
+        })
+      }
+    </nav>
+
+    <div class="col-span-2 flex items-end justify-end gap-10">
+      {
+        SOCIAL_LINKS.map((link) => (
+          <a
+            class="text-xs uppercase tracking-wide font-semibold text-base-6 transition-colors ease-smooth hover:text-base-10"
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {link.name}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</header>
