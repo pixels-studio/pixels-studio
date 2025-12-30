@@ -1,4 +1,6 @@
 ---
+import { cn } from "@/utils/helper";
+
 const LINKS = [
   {
     name: "Work",
@@ -6,32 +8,47 @@ const LINKS = [
   },
   {
     name: "Experience",
-    href: "/",
+    href: "/experience",
   },
   {
     name: "About",
-    href: "/",
+    href: "/about",
   },
   {
     name: "Contact",
-    href: "/",
+    href: "/contact",
   },
 ];
+
+const currentPath = Astro.url.pathname;
 ---
 
-<header class="p-5">
-  <div class="grid grid-cols-6 gap-5">
-    <a class="flex flex-col col-span-2 text-sm" href="/">
+<header class="p-4">
+  <div class="grid grid-cols-12 gap-4 items-end">
+    <a
+      class="flex flex-col col-span-4 text-xs uppercase tracking-wide font-bold"
+      href="/"
+    >
       <p>Abhishek</p>
-      <p class="text-base-6">Product Designer & Frontend Developer</p>
+      <p class="text-base-5">Product Designer & Frontend Developer</p>
     </a>
 
     {
-      LINKS.map((link) => (
-        <a class="text-sm" href={link.href}>
-          {link.name}
-        </a>
-      ))
+      LINKS.map((link) => {
+        const isActive = currentPath === link.href;
+        return (
+          <a
+            class={cn(
+              "text-xs uppercase tracking-wide font-bold justify-self-start transition-colors ease-smooth col-span-2",
+              "hover:text-base-10",
+              isActive ? "text-base-10" : "text-base-6"
+            )}
+            href={link.href}
+          >
+            {link.name}
+          </a>
+        );
+      })
     }
   </div>
 </header>
