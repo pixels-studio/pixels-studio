@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: Inter, sans-serif;
+}
+
+@layer base {
+    :root {
+        font-feature-settings: 'liga' 1, 'calt' 1, 'cv06' 1, 'cv12' 1, 'cv13' 1;
+    }
+}
