@@ -15,10 +15,12 @@
     --color-base-10: #000000;
 
     --ease-smooth: cubic-bezier(.4, 0, .2, 1);
+
+    --text-3xl: 2rem;
 }
 
 @layer base {
     :root {
-        font-feature-settings: 'liga' 1, 'calt' 1, 'cv06' 1, 'cv12' 1, 'cv13' 1;
+        font-feature-settings: 'liga' 1, 'calt' 1, 'cv06' 1;
     }
 }

@@ -20,11 +20,12 @@
 </script>
 
 {#if visible}
-  <div class="fixed inset-0 pointer-events-none z-100 px-4" aria-hidden="true">
-    <div class="h-full grid grid-cols-12 gap-4">
-      {#each Array(12) as _, i}
-        <div class="bg-base-10/10"></div>
-      {/each}
-    </div>
+  <div
+    class="fixed inset-0 grid grid-cols-10 gap-4 pointer-events-none z-100 px-5"
+    aria-hidden="true"
+  >
+    {#each Array(10) as _, i}
+      <div class="bg-base-10/10 h-full"></div>
+    {/each}
   </div>
 {/if}

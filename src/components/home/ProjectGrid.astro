@@ -1,0 +1,76 @@
+---
+import { getCollection } from "astro:content";
+import ProjectCard from "@/components/home/ProjectCard.astro";
+
+const works = await getCollection("works", ({ data }) => {
+  return data.status === "published";
+});
+
+const sortedWorks = works.sort(
+  (a, b) => (a.data.order ?? 999) - (b.data.order ?? 999)
+);
+
+// Grid pattern based on the reference image
+// Each row has 6 potential slots (12 cols / 2 cols per item)
+// Pattern defines which slots are filled vs empty
+// true = project, false = empty
+const gridPattern = [
+  [true, false, true, true, true],
+  [false, true, true, false, true],
+  [true, false, true, true, false],
+  [false, true, false, true, true],
+  [true, true, false, true, false],
+  [true, false, true, false, true],
+  [false, false, true, true, true],
+];
+
+// Generate grid items with positions
+type GridItem =
+  | { type: "project"; project: (typeof sortedWorks)[0] }
+  | { type: "empty" };
+const gridItems: GridItem[] = [];
+
+let projectIndex = 0;
+for (const row of gridPattern) {
+  for (const hasProject of row) {
+    if (hasProject && projectIndex < sortedWorks.length) {
+      gridItems.push({ type: "project", project: sortedWorks[projectIndex] });
+      projectIndex++;
+    } else if (!hasProject) {
+      gridItems.push({ type: "empty" });
+    } else if (hasProject) {
+      // No more projects, but pattern calls for one - make it empty
+      gridItems.push({ type: "empty" });
+    }
+  }
+}
+
+// If we still have projects left, continue with full rows
+while (projectIndex < sortedWorks.length) {
+  gridItems.push({ type: "project", project: sortedWorks[projectIndex] });
+  projectIndex++;
+}
+---
+
+<section class="w-full px-5 pb-24">
+  <div class="grid grid-cols-10 gap-4">
+    {
+      gridItems.map((item) => (
+        <div class="col-span-2">
+          {item.type === "project" ? (
+            <ProjectCard
+              title={item.project.data.title}
+              description={item.project.data.description}
+              cover={item.project.data.cover}
+              product={item.project.data.product}
+              tags={item.project.data.tags}
+              slug={item.project.id}
+            />
+          ) : (
+            <div class="aspect-2/1" />
+          )}
+        </div>
+      ))
+    }
+  </div>
+</section>
