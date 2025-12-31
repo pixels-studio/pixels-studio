@@ -1,25 +1,27 @@
 ---
+import { ROUTES } from "@/utils/routes";
+
 const SOCIAL_LINKS = [
   {
     name: "Twitter",
-    href: "https://twitter.com",
+    href: ROUTES.twitter,
   },
   {
     name: "Instagram",
-    href: "https://instagram.com",
+    href: ROUTES.instagram,
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com",
+    href: ROUTES.linkedin,
   },
   {
-    name: "Savee",
-    href: "https://savee.com",
+    name: "Resume",
+    href: ROUTES.resume,
   },
 ];
 ---
 
-<section class="px-5 py-50 bg-base-8 text-base-0">
+<section class="px-5 py-50 bg-base-1">
   <div class="grid grid-cols-10 gap-4">
     <p
       class="text-xs uppercase tracking-wide text-base-5 font-semibold col-span-3"
@@ -33,12 +35,8 @@ const SOCIAL_LINKS = [
         freelance work.
       </p>
 
-      <p class="text-3xl leading-tight tracking-tight font-semibold">
-        Currently based in Mumbai, India.
-      </p>
-
       <a
-        class="text-3xl text-base-5 leading-tight tracking-tight font-semibold transition-colors ease-smooth hover:text-base-0"
+        class="text-3xl text-base-5 leading-tight tracking-tight font-semibold transition-colors ease-smooth hover:text-base-10"
         href="mailto:hello@pixels.studio"
       >
         hello@pixels.studio
@@ -49,7 +47,7 @@ const SOCIAL_LINKS = [
       {
         SOCIAL_LINKS.map((link) => (
           <a
-            class="text-3xl text-base-5 font-semibold leading-tight tracking-tight transition-colors ease-smooth hover:text-base-0"
+            class="text-3xl text-base-5 font-semibold leading-tight tracking-tight transition-colors ease-smooth hover:text-base-10"
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
@@ -62,12 +60,12 @@ const SOCIAL_LINKS = [
   </div>
 </section>
 
-<footer class="px-5 py-5 bg-base-8 border-t border-base-7 text-base-0">
+<footer class="px-5 py-5 bg-base-1 border-t border-base-10/5">
   <div class="grid grid-cols-10 gap-4">
     <p
       class="text-xs uppercase tracking-wide text-base-5 font-semibold col-span-3"
     >
-      Copyright © Abhishek Kambli
+      © Abhishek Kambli
     </p>
 
     <a
@@ -79,7 +77,7 @@ const SOCIAL_LINKS = [
 
     <a
       class="text-xs uppercase tracking-wide text-base-5 hover:text-base-0 font-semibold col-span-2 col-start-9"
-      href="/colophon">Colophon</a
+      href={ROUTES.colophon}>Colophon</a
     >
   </div>
 </footer>
