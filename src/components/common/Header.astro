@@ -58,7 +58,7 @@ const currentPath = Astro.url.pathname;
               class={cn(
                 "text-xs uppercase tracking-wide font-semibold transition-colors ease-smooth ",
                 "hover:text-base-10",
-                isActive ? "text-base-10" : "text-base-6"
+                isActive ? "text-base-10" : "text-base-5"
               )}
               href={link.href}
             >
@@ -73,7 +73,7 @@ const currentPath = Astro.url.pathname;
       {
         SOCIAL_LINKS.map((link) => (
           <a
-            class="text-xs uppercase tracking-wide font-semibold text-base-6 transition-colors ease-smooth hover:text-base-10"
+            class="text-xs uppercase tracking-wide font-semibold text-base-5 transition-colors ease-smooth hover:text-base-10"
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"

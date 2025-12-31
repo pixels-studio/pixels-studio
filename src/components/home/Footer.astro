@@ -1,0 +1,85 @@
+---
+const SOCIAL_LINKS = [
+  {
+    name: "Twitter",
+    href: "https://twitter.com",
+  },
+  {
+    name: "Instagram",
+    href: "https://instagram.com",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com",
+  },
+  {
+    name: "Savee",
+    href: "https://savee.com",
+  },
+];
+---
+
+<section class="px-5 py-50 bg-base-8 text-base-0">
+  <div class="grid grid-cols-10 gap-4">
+    <p
+      class="text-xs uppercase tracking-wide text-base-5 font-semibold col-span-3"
+    >
+      Availability
+    </p>
+
+    <div class="col-span-4 flex flex-col text-pretty gap-5">
+      <p class="text-3xl leading-tight tracking-tight font-semibold">
+        Available for remote frontend or product design roles, and selective
+        freelance work.
+      </p>
+
+      <p class="text-3xl leading-tight tracking-tight font-semibold">
+        Currently based in Mumbai, India.
+      </p>
+
+      <a
+        class="text-3xl text-base-5 leading-tight tracking-tight font-semibold transition-colors ease-smooth hover:text-base-0"
+        href="mailto:hello@pixels.studio"
+      >
+        hello@pixels.studio
+      </a>
+    </div>
+
+    <nav class="col-span-2 col-start-9 flex flex-col gap-2.5">
+      {
+        SOCIAL_LINKS.map((link) => (
+          <a
+            class="text-3xl text-base-5 font-semibold leading-tight tracking-tight transition-colors ease-smooth hover:text-base-0"
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {link.name}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</section>
+
+<footer class="px-5 py-5 bg-base-8 border-t border-base-7 text-base-0">
+  <div class="grid grid-cols-10 gap-4">
+    <p
+      class="text-xs uppercase tracking-wide text-base-5 font-semibold col-span-3"
+    >
+      Copyright © Abhishek Kambli
+    </p>
+
+    <a
+      class="text-xs uppercase tracking-wide text-base-5 hover:text-base-0 font-semibold col-span-3"
+      href="#"
+    >
+      Back to top
+    </a>
+
+    <a
+      class="text-xs uppercase tracking-wide text-base-5 hover:text-base-0 font-semibold col-span-2 col-start-9"
+      href="/colophon">Colophon</a
+    >
+  </div>
+</footer>

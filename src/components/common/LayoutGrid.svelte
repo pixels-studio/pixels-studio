@@ -25,7 +25,7 @@
     aria-hidden="true"
   >
     {#each Array(10) as _, i}
-      <div class="bg-base-10/10 h-full"></div>
+      <div class="bg-orange-500/10 h-full"></div>
     {/each}
   </div>
 {/if}
