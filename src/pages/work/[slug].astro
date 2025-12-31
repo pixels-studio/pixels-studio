@@ -1,0 +1,62 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const works = await getCollection("works");
+  return works.map((work) => ({
+    params: { slug: work.id },
+    props: { work },
+  }));
+}
+
+const { work } = Astro.props;
+const { Content } = await render(work);
+---
+
+<Layout>
+  <section class="px-5 py-50 flex flex-col gap-25">
+    <div class="grid grid-cols-10 gap-4">
+      <p
+        class="text-xs col-span-4 uppercase tracking-wide font-medium text-base-5"
+      >
+        Work
+      </p>
+
+      <div class="col-span-5 flex flex-col gap-10">
+        <h1 class="text-6xl/none leading-tight tracking-tight font-medium">
+          {work.data.title}
+        </h1>
+        <p class="text-lg/snug text-pretty">
+          {work.data.description}
+        </p>
+      </div>
+    </div>
+    <div class="grid grid-cols-10 gap-x-4">
+      {
+        work.data.cover && (
+          <div class="col-span-full aspect-2/1">
+            <img
+              src={work.data.cover}
+              alt={work.data.title}
+              class="w-full object-cover"
+              transition:name={`work-cover-${work.id}`}
+            />
+          </div>
+        )
+      }
+    </div>
+  </section>
+  <section class="px-5 pb-50">
+    <div class="grid grid-cols-10 gap-4">
+      <p
+        class="text-xs col-span-4 uppercase tracking-wide font-medium text-base-5"
+      >
+        About
+      </p>
+      <div class="col-span-5 flex flex-col gap-5 text-pretty text-lg">
+        <Content />
+      </div>
+    </div>
+  </section>
+</Layout>
