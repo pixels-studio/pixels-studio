@@ -1,0 +1,106 @@
+---
+const PEOPLE = [
+  "My Mom",
+  "My Dad",
+  "My Grandfather",
+  "My Teachers",
+  "Dr. Homi Bhabha",
+  "Abdul Kalam",
+  "Sachin Tendulkar",
+  "Virat Kohli",
+  "Javed Akhtar",
+  "Zakir Khan",
+  "Robin Sharma",
+  "Akshay Kambli",
+  "Shailesh Tyagi",
+  "Raja Sandhu",
+  "Brian Lovin",
+  "Dan Abramov",
+  "Mackenzie Child",
+  "Gil Huybrecht",
+  "Vinay Nair",
+  "Yash Lalchandani",
+  "Anusha Shetty",
+  "Jayesh Nambiar",
+  "Prashant Kamble",
+  "MDS",
+  "DHH",
+];
+
+// shuffle the people array
+const shuffledPeople = PEOPLE.sort(() => Math.random() - 0.5);
+---
+
+<section class="px-5 py-50 flex flex-col gap-50">
+  <div class="grid grid-cols-10 gap-4">
+    <h1
+      class="text-6xl/none col-span-full leading-tight tracking-tight font-medium"
+    >
+      <span class="block">Colophon</span>
+      <span class="text-base-5 block">A note on how this site is made.</span>
+    </h1>
+  </div>
+
+  <div class="grid grid-cols-10 gap-4">
+    <aside class="col-span-4 flex flex-col gap-10">
+      <div
+        class="text-xs uppercase tracking-wide font-medium flex flex-col gap-2.5"
+      >
+        <p class="text-base-5">Type</p>
+        <p>Inter — Rasmus Andersson</p>
+      </div>
+
+      <div
+        class="text-xs uppercase tracking-wide font-medium flex flex-col gap-2.5"
+      >
+        <p class="text-base-5">Build</p>
+        <ul class="flex flex-col gap-2.5">
+          <li>Astro</li>
+          <li>Tailwind CSS</li>
+          <li>TypeScript</li>
+          <li>Svelte</li>
+          <li>GSAP</li>
+        </ul>
+      </div>
+
+      <div
+        class="text-xs uppercase tracking-wide font-medium flex flex-col gap-2.5"
+      >
+        <p class="text-base-5">Approach</p>
+        <ul class="flex flex-col gap-2.5">
+          <li>Static-first</li>
+          <li>Editor Design</li>
+        </ul>
+      </div>
+    </aside>
+    <div class="col-span-5 flex flex-col gap-5 text-pretty text-lg">
+      <p>
+        This site exists to present work without interference. It avoids trends,
+        unnecessary movement, and decorative systems that compete with content.
+      </p>
+
+      <p>
+        The design relies on typography, spacing, and structure. Inter was
+        chosen for its neutrality and clarity across screens—quiet, dependable,
+        and designed to disappear. Layouts are simple by intent; interaction is
+        restrained and purposeful.
+      </p>
+
+      <p>
+        The site is built with a static-first mindset, prioritising performance,
+        accessibility, and long-term maintainability. Tooling is modern but
+        conservative. Every dependency earns its place.
+      </p>
+
+      <p>
+        Over the years, I’ve been influenced by family, teachers, colleagues,
+        designers, writers, musicians, and public figures—some personally, some
+        from a distance—who have shaped how I think, work, and build.
+      </p>
+
+      <ul class="grid grid-cols-3 gap-2.5 mt-15 text-base-5">
+        {shuffledPeople.map((person) => <li>{person}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>
