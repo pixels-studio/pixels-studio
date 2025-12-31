@@ -1,0 +1,104 @@
+---
+const EXPERIENCE = [
+  {
+    title: "Senior Designer",
+    company: "Origon Inc.",
+    date: "2024-Present",
+    description:
+      "Leading product design and frontend engineering for an agentic AI operating system used to build, deploy, and observe autonomous multi-agent systems across complex enterprise workflows.",
+    highlights: [
+      "Designing complex system workflows and interfaces",
+      "Owning frontend architecture and design systems",
+      "Working closely with product and engineering leadership",
+    ],
+  },
+
+  {
+    title: "Senior Designer",
+    company: "Samespace Inc.",
+    date: "2020-2024",
+    description:
+      "Designed and built core product interfaces for a cloud-based contact-center platform, focusing on scalability, usability, and real-time operational workflows.",
+    highlights: [
+      "Led UI/UX across key dashboards and workflows",
+      "Built scalable frontend systems used in production",
+      "Shipped features used by distributed teams",
+    ],
+  },
+
+  {
+    title: "UX Designer",
+    company: "Tlkn Inc.",
+    date: "2020-2024",
+    description:
+      "Early team member on a privacy-first free calling mobile app, contributing to product design and frontend implementation with a strong focus on audio quality and performance.",
+    highlights: [
+      "Worked on product design and early frontend",
+      "Shipped and iterated on the initial product",
+      "Used by 50k+ users globally",
+    ],
+  },
+
+  {
+    title: "Independent Designer & Developer",
+    company: "Remote",
+    date: "2020-Present",
+    description:
+      "Independent designer and developer working across web, mobile, and desktop projects, collaborating with startups and teams to ship production-ready products end to end.",
+    highlights: [
+      "Designed and built a variety of projects, including web design, mobile apps, and desktop applications.",
+      "Worked on a variety of projects, including web design, mobile apps, and desktop applications.",
+      "Used by 30k+ users globally",
+    ],
+  },
+];
+---
+
+<section class="px-5 py-50">
+  <div class="grid grid-cols-10 gap-x-4">
+    <h1
+      class="text-xs col-span-4 uppercase tracking-wide font-medium text-base-5"
+    >
+      Experience
+    </h1>
+    <div
+      class="col-span-5 flex flex-col text-pretty gap-8 text-3xl/tight font-medium"
+    >
+      <p>
+        I’ve spent over a decade designing and building intuitive software
+        across consumer, B2B and agentic AI platforms.
+      </p>
+      <p>
+        My work spans across product design, frontend engineering, and
+        leadership.
+      </p>
+    </div>
+
+    <div class="col-span-5 col-start-5 mt-20 flex flex-col">
+      {
+        EXPERIENCE.map((experience) => (
+          <article class="py-20 text-lg/snug flex flex-col gap-8 border-b border-base-10/10 first:border-t last:border-b-0 last:pb-0">
+            <div class="flex items-start justify-between">
+              <div>
+                <p>{experience.title}</p>
+                <p class="text-base-5">{experience.company}</p>
+              </div>
+
+              <p class="text-base-5">{experience.date}</p>
+            </div>
+
+            <p class="text-pretty">{experience.description}</p>
+            <ul class="flex flex-col gap-2.5">
+              {experience.highlights.map((highlight) => (
+                <li class="flex items-start gap-2.5">
+                  <div class="size-2 bg-base-4 shrink-0 my-2" />
+                  <p class="text-base-6">{highlight}</p>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
