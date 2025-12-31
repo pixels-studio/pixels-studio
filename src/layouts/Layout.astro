@@ -3,6 +3,7 @@ import "../styles/global.css";
 
 import Header from "@/components/common/Header.astro";
 import LayoutGrid from "@/components/common/LayoutGrid.svelte";
+import Footer from "@/components/common/Footer.astro";
 ---
 
 <!doctype html>
@@ -17,8 +18,11 @@ import LayoutGrid from "@/components/common/LayoutGrid.svelte";
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
   </head>
   <body class="antialiased bg-base-0 text-base-10">
-    <Header />
-    <slot />
+    <main class="min-h-dvh flex flex-col">
+      <Header />
+      <slot />
+      <Footer />
+    </main>
     <LayoutGrid client:only="svelte" />
   </body>
 </html>
