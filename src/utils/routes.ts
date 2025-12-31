@@ -1,7 +1,7 @@
 export const ROUTES = {
   home: "/",
   about: "/about",
-  contact: "/contact",
+  contact: "mailto:hello@pixels.studio",
   experience: "/experience",
   colophon: "/colophon",
   resume: "/resume",
